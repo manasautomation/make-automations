@@ -1,0 +1,1954 @@
+{
+    "name": "folder creation",
+    "flow": [
+        {
+            "id": 5,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "Year",
+                        "value": "{{formatDate(now; \"YYYY\")}}"
+                    },
+                    {
+                        "name": "Month Name",
+                        "value": "{{formatDate(now; \"MMM\")}}"
+                    },
+                    {
+                        "name": "Month start date",
+                        "value": "{{formatDate(now; \"YYYY-MM-01\")}}"
+                    },
+                    {
+                        "name": "Month End",
+                        "value": "{{formatDate(addDays(addMonths(formatDate(now; \"YYYY-MM-01\"); 1); -1); \"YYYY-MM-DD\")}}"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": -55,
+                    "y": -90
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
+                        "variables": {
+                            "items": [
+                                null,
+                                null,
+                                null,
+                                null
+                            ]
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "Year",
+                        "type": "any",
+                        "label": "Year"
+                    },
+                    {
+                        "name": "Month Name",
+                        "type": "any",
+                        "label": "Month Name"
+                    },
+                    {
+                        "name": "Month start date",
+                        "type": "any",
+                        "label": "Month start date"
+                    },
+                    {
+                        "name": "Month End",
+                        "type": "any",
+                        "label": "Month End"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "Week1Start",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 0); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week1End",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 6); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week2Start",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 7); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week2End",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 13); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week3Start",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 14); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week3End",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 20); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week4Start",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 21); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week4End",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 27); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week5Start",
+                        "value": "{{formatDate(addDays(5.`Month start date`; 28); \"DD MMM\")}}"
+                    },
+                    {
+                        "name": "Week5End",
+                        "value": "{{formatDate(5.`Month End`; \"DD MMM\")}}"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 209,
+                    "y": -87
+                },
+                "restore": {
+                    "expect": {
+                        "scope": {
+                            "label": "One cycle"
+                        },
+                        "variables": {
+                            "items": [
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null
+                            ]
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "Week1Start",
+                        "type": "any",
+                        "label": "Week1Start"
+                    },
+                    {
+                        "name": "Week1End",
+                        "type": "any",
+                        "label": "Week1End"
+                    },
+                    {
+                        "name": "Week2Start",
+                        "type": "any",
+                        "label": "Week2Start"
+                    },
+                    {
+                        "name": "Week2End",
+                        "type": "any",
+                        "label": "Week2End"
+                    },
+                    {
+                        "name": "Week3Start",
+                        "type": "any",
+                        "label": "Week3Start"
+                    },
+                    {
+                        "name": "Week3End",
+                        "type": "any",
+                        "label": "Week3End"
+                    },
+                    {
+                        "name": "Week4Start",
+                        "type": "any",
+                        "label": "Week4Start"
+                    },
+                    {
+                        "name": "Week4End",
+                        "type": "any",
+                        "label": "Week4End"
+                    },
+                    {
+                        "name": "Week5Start",
+                        "type": "any",
+                        "label": "Week5Start"
+                    },
+                    {
+                        "name": "Week5End",
+                        "type": "any",
+                        "label": "Week5End"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 28,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 462,
+                    "y": -97
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 10,
+                            "module": "google-drive:searchForFilesFolders",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 7189904
+                            },
+                            "mapper": {
+                                "limit": "1",
+                                "query": "\r\n{{5.Year}}\r\n\r\n",
+                                "select": "list",
+                                "folderId": "/1cr1FWCO8rod0arh-lPbbD6a6QO36wLjd",
+                                "operator": "=",
+                                "retrieve": "folder",
+                                "searchType": "title",
+                                "destination": "team",
+                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                "useDomainAdminAccess": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 684,
+                                    "y": -318
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "select": {
+                                            "label": "Select from the list"
+                                        },
+                                        "folderId": {
+                                            "mode": "chose",
+                                            "path": [
+                                                "RAW_CONTENT"
+                                            ]
+                                        },
+                                        "operator": {
+                                            "label": "Search for exact term"
+                                        },
+                                        "retrieve": {
+                                            "label": "Folders"
+                                        },
+                                        "searchType": {
+                                            "label": "Search within file/folder names"
+                                        },
+                                        "destination": {
+                                            "label": "Google Shared Drive"
+                                        },
+                                        "sharedDrive": {
+                                            "label": "SOCIAL_CONTENT"
+                                        },
+                                        "useDomainAdminAccess": {
+                                            "label": "Yes"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-restricted"
+                                            },
+                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google-restricted",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "type": "hidden"
+                                    },
+                                    {
+                                        "name": "select",
+                                        "type": "select",
+                                        "label": "Select the Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "map",
+                                                "list"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "retrieve",
+                                        "type": "select",
+                                        "label": "Retrieve",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "file",
+                                                "folder",
+                                                "file_folder"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "searchType",
+                                        "type": "select",
+                                        "label": "Search",
+                                        "validate": {
+                                            "enum": [
+                                                "title",
+                                                "fulltext",
+                                                "custom"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "type": "uinteger",
+                                        "label": "Limit"
+                                    },
+                                    {
+                                        "name": "destination",
+                                        "type": "select",
+                                        "label": "Choose a Drive",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "drive",
+                                                "share",
+                                                "team"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "useDomainAdminAccess",
+                                        "type": "select",
+                                        "label": "Use Domain Admin Access",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                true,
+                                                false
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "sharedDrive",
+                                        "type": "select",
+                                        "label": "Shared Drive",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "folderId",
+                                        "type": "folder",
+                                        "label": "Choose a Folder"
+                                    },
+                                    {
+                                        "name": "query",
+                                        "type": "text",
+                                        "label": "Query",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "operator",
+                                        "type": "select",
+                                        "label": "Search options",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "=",
+                                                "contains"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 11,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": 966,
+                                    "y": -317
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 8,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "filter": {
+                                                "name": "",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{10.`__IMTLENGTH__`}}",
+                                                            "b": "0",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.Year}}",
+                                                "folderId": "/1cr1FWCO8rod0arh-lPbbD6a6QO36wLjd",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": true
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 968,
+                                                    "y": -675
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "chose",
+                                                            "path": [
+                                                                "RAW_CONTENT"
+                                                            ]
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "Yes"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 23,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.`Month Name`}}",
+                                                "folderId": "{{8.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1268,
+                                                    "y": -675
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 25,
+                                            "module": "builtin:BasicFeeder",
+                                            "version": 1,
+                                            "parameters": {},
+                                            "mapper": {
+                                                "array": [
+                                                    "{{17.Week1Start}} - {{17.Week1End}}",
+                                                    "{{17.Week2Start}} - {{17.Week2End}}",
+                                                    "{{17.Week3Start}} - {{17.Week3End}}\r\n",
+                                                    "{{17.Week4Start}} - {{17.Week4End}}\r\n",
+                                                    "{{17.Week5Start}} - {{17.Week5End}}"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1644,
+                                                    "y": -687
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "array": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "expect": [
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "array",
+                                                        "spec": [],
+                                                        "type": "array",
+                                                        "label": "Array"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 26,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{25.value}}",
+                                                "folderId": "{{23.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1944,
+                                                    "y": -700
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 14,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "filter": {
+                                                "name": "",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{10.`__IMTLENGTH__`}}",
+                                                            "b": "1",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.`Month Name`}}",
+                                                "folderId": "{{10.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1430,
+                                                    "y": -317
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 21,
+                                            "module": "builtin:BasicFeeder",
+                                            "version": 1,
+                                            "parameters": {},
+                                            "mapper": {
+                                                "array": [
+                                                    "{{17.Week1Start}} - {{17.Week1End}}",
+                                                    "{{17.Week2Start}} - {{17.Week2End}}",
+                                                    "{{17.Week3Start}} - {{17.Week3End}}\r\n",
+                                                    "{{17.Week4Start}} - {{17.Week4End}}\r\n",
+                                                    "{{17.Week5Start}} - {{17.Week5End}}"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1804,
+                                                    "y": -319
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "array": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "expect": [
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "array",
+                                                        "spec": [],
+                                                        "type": "array",
+                                                        "label": "Array"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 22,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{21.value}}",
+                                                "folderId": "{{14.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 2169,
+                                                    "y": -334
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 27,
+                            "module": "google-drive:searchForFilesFolders",
+                            "version": 4,
+                            "parameters": {
+                                "__IMTCONN__": 7189904
+                            },
+                            "mapper": {
+                                "limit": "1",
+                                "query": "{{5.Year}}",
+                                "select": "list",
+                                "folderId": "/1kI2Qf6EPqWJfIWrqouFlWrOZKQG77M1r",
+                                "operator": "=",
+                                "retrieve": "folder",
+                                "searchType": "title",
+                                "destination": "team",
+                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                "useDomainAdminAccess": true
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 671,
+                                    "y": 105
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "select": {
+                                            "label": "Select from the list"
+                                        },
+                                        "folderId": {
+                                            "mode": "chose",
+                                            "path": [
+                                                "EDITED_CONTENT"
+                                            ]
+                                        },
+                                        "operator": {
+                                            "label": "Search for exact term"
+                                        },
+                                        "retrieve": {
+                                            "label": "Folders"
+                                        },
+                                        "searchType": {
+                                            "label": "Search within file/folder names"
+                                        },
+                                        "destination": {
+                                            "label": "Google Shared Drive"
+                                        },
+                                        "sharedDrive": {
+                                            "label": "SOCIAL_CONTENT"
+                                        },
+                                        "useDomainAdminAccess": {
+                                            "label": "Yes"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google-restricted"
+                                            },
+                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google-restricted",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "type": "hidden"
+                                    },
+                                    {
+                                        "name": "select",
+                                        "type": "select",
+                                        "label": "Select the Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "map",
+                                                "list"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "retrieve",
+                                        "type": "select",
+                                        "label": "Retrieve",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "file",
+                                                "folder",
+                                                "file_folder"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "searchType",
+                                        "type": "select",
+                                        "label": "Search",
+                                        "validate": {
+                                            "enum": [
+                                                "title",
+                                                "fulltext",
+                                                "custom"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "type": "uinteger",
+                                        "label": "Limit"
+                                    },
+                                    {
+                                        "name": "destination",
+                                        "type": "select",
+                                        "label": "Choose a Drive",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "drive",
+                                                "share",
+                                                "team"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "useDomainAdminAccess",
+                                        "type": "select",
+                                        "label": "Use Domain Admin Access",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                true,
+                                                false
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "sharedDrive",
+                                        "type": "select",
+                                        "label": "Shared Drive",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "folderId",
+                                        "type": "folder",
+                                        "label": "Choose a Folder"
+                                    },
+                                    {
+                                        "name": "query",
+                                        "type": "text",
+                                        "label": "Query",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "operator",
+                                        "type": "select",
+                                        "label": "Search options",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "=",
+                                                "contains"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 29,
+                            "module": "builtin:BasicRouter",
+                            "version": 1,
+                            "mapper": null,
+                            "metadata": {
+                                "designer": {
+                                    "x": 979,
+                                    "y": 92
+                                }
+                            },
+                            "routes": [
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 30,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "filter": {
+                                                "name": "",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{27.`__IMTLENGTH__`}}",
+                                                            "b": "1",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.`Month Name`}}",
+                                                "folderId": "{{27.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1443,
+                                                    "y": 90
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 31,
+                                            "module": "builtin:BasicFeeder",
+                                            "version": 1,
+                                            "parameters": {},
+                                            "mapper": {
+                                                "array": [
+                                                    "{{17.Week1Start}} - {{17.Week1End}}",
+                                                    "{{17.Week2Start}} - {{17.Week2End}}",
+                                                    "{{17.Week3Start}} - {{17.Week3End}}\r\n",
+                                                    "{{17.Week4Start}} - {{17.Week4End}}\r\n",
+                                                    "{{17.Week5Start}} - {{17.Week5End}}"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1825,
+                                                    "y": 71
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "array": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "expect": [
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "array",
+                                                        "spec": [],
+                                                        "type": "array",
+                                                        "label": "Array"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 32,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{31.value}}",
+                                                "folderId": "{{30.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 2183,
+                                                    "y": 60
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "flow": [
+                                        {
+                                            "id": 33,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "filter": {
+                                                "name": "",
+                                                "conditions": [
+                                                    [
+                                                        {
+                                                            "a": "{{27.`__IMTLENGTH__`}}",
+                                                            "b": "0",
+                                                            "o": "text:equal"
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.Year}}",
+                                                "folderId": "/1kI2Qf6EPqWJfIWrqouFlWrOZKQG77M1r",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": true
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 981,
+                                                    "y": 429
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "chose",
+                                                            "path": [
+                                                                "EDITED_CONTENT"
+                                                            ]
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "Yes"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 34,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{5.`Month Name`}}",
+                                                "folderId": "{{33.id}}{{33.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1327,
+                                                    "y": 415
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 35,
+                                            "module": "builtin:BasicFeeder",
+                                            "version": 1,
+                                            "parameters": {},
+                                            "mapper": {
+                                                "array": [
+                                                    "{{17.Week1Start}} - {{17.Week1End}}",
+                                                    "{{17.Week2Start}} - {{17.Week2End}}",
+                                                    "{{17.Week3Start}} - {{17.Week3End}}\r\n",
+                                                    "{{17.Week4Start}} - {{17.Week4End}}\r\n",
+                                                    "{{17.Week5Start}} - {{17.Week5End}}"
+                                                ]
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1704,
+                                                    "y": 407
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "array": {
+                                                            "mode": "chose",
+                                                            "items": [
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null,
+                                                                null
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                "expect": [
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "array",
+                                                        "spec": [],
+                                                        "type": "array",
+                                                        "label": "Array"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "id": 36,
+                                            "module": "google-drive:createAFolder",
+                                            "version": 4,
+                                            "parameters": {
+                                                "__IMTCONN__": 7189904
+                                            },
+                                            "mapper": {
+                                                "name": "{{35.value}}",
+                                                "folderId": "{{34.id}}",
+                                                "destination": "team",
+                                                "sharedDrive": "0AMU9_ttXHQFWUk9PVA",
+                                                "useDomainAdminAccess": false
+                                            },
+                                            "metadata": {
+                                                "designer": {
+                                                    "x": 1989,
+                                                    "y": 392
+                                                },
+                                                "restore": {
+                                                    "expect": {
+                                                        "folderId": {
+                                                            "mode": "edit",
+                                                            "path": []
+                                                        },
+                                                        "destination": {
+                                                            "label": "Google Shared Drive"
+                                                        },
+                                                        "sharedDrive": {
+                                                            "mode": "chose",
+                                                            "label": "SOCIAL_CONTENT"
+                                                        },
+                                                        "useDomainAdminAccess": {
+                                                            "label": "No"
+                                                        }
+                                                    },
+                                                    "parameters": {
+                                                        "__IMTCONN__": {
+                                                            "data": {
+                                                                "scoped": "true",
+                                                                "connection": "google-restricted"
+                                                            },
+                                                            "label": "My Google Restricted connection (admin@fluencium.com)"
+                                                        }
+                                                    }
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "name": "__IMTCONN__",
+                                                        "type": "account:google-restricted",
+                                                        "label": "Connection",
+                                                        "required": true
+                                                    }
+                                                ],
+                                                "expect": [
+                                                    {
+                                                        "type": "hidden"
+                                                    },
+                                                    {
+                                                        "name": "destination",
+                                                        "type": "select",
+                                                        "label": "New Drive Location",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                "drive",
+                                                                "share",
+                                                                "team"
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "useDomainAdminAccess",
+                                                        "type": "select",
+                                                        "label": "Use Domain Admin Access",
+                                                        "required": true,
+                                                        "validate": {
+                                                            "enum": [
+                                                                true,
+                                                                false
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "name",
+                                                        "type": "text",
+                                                        "label": "New Folder's Name"
+                                                    },
+                                                    {
+                                                        "name": "sharedDrive",
+                                                        "type": "select",
+                                                        "label": "Shared Drive",
+                                                        "required": true
+                                                    },
+                                                    {
+                                                        "name": "folderId",
+                                                        "type": "folder",
+                                                        "label": "New Folder Location"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
